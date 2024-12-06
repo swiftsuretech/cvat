@@ -1,0 +1,38 @@
+# nuclio.enabled: false
+
+postgresql:
+  secret:
+    password: password
+    postgres_password: password
+    replication_password: password
+
+analytics:
+  enabled: false
+# cvat:
+#   backend:
+#     defaultStorage:
+#       enabled: true
+#       accessModes:
+#         - ReadWriteMany
+#       storageClassName: nfs-csi
+# 
+# registry:
+#   loginUrl: https://cs-demo-cvat2-harbor.runailabs-cs.com/
+#   credentials:
+#     username: robot$cvat+cvat
+#     password: jm8Ijs33pwRHNk6bSLIoONH1aPgKLqdM
+# 
+# ingress:
+#   enabled: true
+#   tls: true
+#   tlsSecretName: ingress-tls-cvat
+#   className: "nginx"
+#   hostname: cvat-cvat.cs-demo-cvat2.runailabs-cs.com
+#   hosts:
+#     - host: cvat-cvat.cs-demo-cvat2.runailabs-cs.com
+# 
+traefik:
+  enabled: false
+# 
+# project:
+#   name: "cvat"
