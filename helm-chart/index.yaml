@@ -13,7 +13,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 23.12.2
-    created: "2024-12-06T14:28:28.714081296Z"
+    created: "2024-12-06T14:46:18.076273038Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -40,8 +40,49 @@ entries:
     sources:
     - https://github.com/bitnami/charts/tree/main/bitnami/clickhouse
     urls:
-    - https://swiftsuretech.github.io/helm-charts/charts/clickhouse-4.1.16.tgz
+    - https://swiftsuretech.github.io/helm-chart/charts/clickhouse-4.1.16.tgz
     version: 4.1.16
+  cvat:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-12-06T14:46:18.072278427Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.1.*
+    - condition: nuclio.enabled
+      name: nuclio
+      repository: https://nuclio.github.io/nuclio/charts
+      version: 0.19.0
+    - condition: analytics.enabled
+      name: vector
+      repository: https://helm.vector.dev
+      version: 0.19.*
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: https://charts.bitnami.com/bitnami
+      version: 4.1.*
+    - condition: analytics.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.60.*
+    - condition: traefik.enabled
+      name: traefik
+      repository: https://helm.traefik.io/traefik
+      version: 25.0.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 18.5.*
+    description: A Helm chart for Kubernetes
+    digest: 24750f886aa49ef990ea23b7cd2b11a9089881b0c37a3377e74a9e324c9f5a8c
+    kubeVersion: '>= 1.19.0-0'
+    name: cvat
+    type: application
+    urls:
+    - https://swiftsuretech.github.io/helm-chart/cvat-0.14.0.tgz
+    version: 0.14.0
   grafana:
   - annotations:
       artifacthub.io/license: AGPL-3.0-only
@@ -52,7 +93,7 @@ entries:
           url: https://github.com/grafana/grafana
     apiVersion: v2
     appVersion: 10.1.5
-    created: "2024-12-06T14:28:28.716297722Z"
+    created: "2024-12-06T14:46:18.079092075Z"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 2d649a7e824c4318b62bcd1b7e35461cb0215b527cc87e46f5f66aa6e3d06d05
     home: https://grafana.net
@@ -78,12 +119,12 @@ entries:
     - https://github.com/grafana/helm-charts
     type: application
     urls:
-    - https://swiftsuretech.github.io/helm-charts/charts/grafana-6.60.6.tgz
+    - https://swiftsuretech.github.io/helm-chart/charts/grafana-6.60.6.tgz
     version: 6.60.6
   nuclio:
   - apiVersion: v1
     appVersion: 1.13.0
-    created: "2024-12-06T14:28:28.717352687Z"
+    created: "2024-12-06T14:46:18.079948956Z"
     description: Serverless for Real-Time and Data-Driven Applications
     digest: 476c09b5103cc34af682f8993dc11cb28858257afc6cba71bb1276e75fcd188d
     home: https://nuclio.io
@@ -97,7 +138,7 @@ entries:
     sources:
     - https://github.com/nuclio/nuclio
     urls:
-    - https://swiftsuretech.github.io/helm-charts/charts/nuclio-0.19.0.tgz
+    - https://swiftsuretech.github.io/helm-chart/charts/nuclio-0.19.0.tgz
     version: 0.19.0
   postgresql:
   - annotations:
@@ -105,7 +146,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.2.0
-    created: "2024-12-06T14:28:28.721566946Z"
+    created: "2024-12-06T14:46:18.082482299Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -133,7 +174,7 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/postgresql
     - https://www.postgresql.org/
     urls:
-    - https://swiftsuretech.github.io/helm-charts/charts/postgresql-12.1.15.tgz
+    - https://swiftsuretech.github.io/helm-chart/charts/postgresql-12.1.15.tgz
     version: 12.1.15
   redis:
   - annotations:
@@ -150,7 +191,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.2.3
-    created: "2024-12-06T14:28:28.72561001Z"
+    created: "2024-12-06T14:46:18.086868201Z"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -174,7 +215,7 @@ entries:
     sources:
     - https://github.com/bitnami/charts/tree/main/bitnami/redis
     urls:
-    - https://swiftsuretech.github.io/helm-charts/charts/redis-18.5.0.tgz
+    - https://swiftsuretech.github.io/helm-chart/charts/redis-18.5.0.tgz
     version: 18.5.0
   traefik:
   - annotations:
@@ -192,7 +233,7 @@ entries:
         tag to v3.12.3\"\n- \"chore(ci): \U0001F527 \U0001F477 add e2e test when releasing\"\n"
     apiVersion: v2
     appVersion: v2.10.5
-    created: "2024-12-06T14:28:28.72949608Z"
+    created: "2024-12-06T14:46:18.089796336Z"
     description: A Traefik based Kubernetes ingress controller
     digest: 79624b04ba57be3510a9f11780c79bfddb0927a1f0a9443cfdf83b7526a1dc9a
     home: https://traefik.io/
@@ -219,7 +260,7 @@ entries:
     - https://github.com/traefik/traefik-helm-chart
     type: application
     urls:
-    - https://swiftsuretech.github.io/helm-charts/charts/traefik-25.0.0.tgz
+    - https://swiftsuretech.github.io/helm-chart/charts/traefik-25.0.0.tgz
     version: 25.0.0
   vector:
   - annotations:
@@ -235,7 +276,7 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 0.27.1-distroless-libc
-    created: "2024-12-06T14:28:28.73098723Z"
+    created: "2024-12-06T14:46:18.091279303Z"
     description: A lightweight, ultra-fast tool for building observability pipelines
     digest: a2ec56c1c734e5ddc0ed7860c74825c84564628973bc7d3b0c0b5562efe65157
     home: https://vector.dev/
@@ -256,6 +297,6 @@ entries:
     - https://github.com/vectordotdev/vector/
     type: application
     urls:
-    - https://swiftsuretech.github.io/helm-charts/charts/vector-0.19.2.tgz
+    - https://swiftsuretech.github.io/helm-chart/charts/vector-0.19.2.tgz
     version: 0.19.2
-generated: "2024-12-06T14:28:28.707252825Z"
+generated: "2024-12-06T14:46:18.052597666Z"
